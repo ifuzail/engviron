@@ -1,5 +1,8 @@
 "use client";
 
+
+// import statements
+
 import axios from "axios";
 import qs from "query-string";
 import * as z from "zod";
@@ -24,13 +27,18 @@ import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+// imports end here!
 
+
+//form schema
 const formSchema = z.object({
   fileUrl: z.string().min(1, {
     message: "Attachment is required."
   })
 });
 
+
+// main function starts here
 export const MessageFileModal = () => {
   const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();

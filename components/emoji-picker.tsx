@@ -1,5 +1,6 @@
 "use client";
 
+//import statements starts here
 import { Smile } from "lucide-react";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
@@ -10,11 +11,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+// imports end here
 
+//interface for props 
 interface EmojiPickerProps {
   onChange: (value: string) => void;
 }
 
+//main function
 export const EmojiPicker = ({
   onChange,
 }: EmojiPickerProps) => {

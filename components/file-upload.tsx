@@ -1,18 +1,24 @@
 "use client";
 
+//imports starts here
 import { FileIcon, X } from "lucide-react";
 import Image from "next/image";
 
 import { UploadDropzone } from "@/lib/uploadthing";
 
 import "@uploadthing/react/styles.css";
+//imports ends here
 
+
+//typescript interface for props 
 interface FileUploadProps {
   onChange: (url?: string) => void;
   value: string;
   endpoint: "messageFile" | "serverImage"
 }
 
+
+// main function for file upload from uploadthing
 export const FileUpload = ({
   onChange,
   value,
@@ -20,6 +26,7 @@ export const FileUpload = ({
 }: FileUploadProps) => {
   const fileType = value?.split(".").pop();
 
+  // if filetype is not a pdf (it will be an image)
   if (value && fileType !== "pdf") {
     return (
       <div className="relative h-20 w-20">
@@ -40,6 +47,7 @@ export const FileUpload = ({
     )
   }
 
+  // if filetype will be pdf then condition will be 
   if (value && fileType === "pdf") {
     return (
       <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
